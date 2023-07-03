@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin user </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+
+        .navbar {
+            background-color: #3b5998;
+        }
+
+        .navbar-brand {
+            color: white;
+        }
+
+        .nav-link {
+            color: rgb(19, 33, 153) !important;
+        }
+
+        .nav-link:hover {
+            color: #dfe3ee !important;
+        }
+
+        .table {
+            background-color: white;
+        }
+
+        h1 {
+            color: #3b5998;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Admin Home</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>
+                    Admin Home
+                </h3>
+            </div>
+        </div>
+
+        <hr>
+
+        <% if (blogs.length> 0) { %>
+            <table class="table table-bordered table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var i=0; i < blogs.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= blogs[i].heading %>
+                            </td>
+                            <td>
+                                <%= blogs[i].blog %>
+                            </td>
+                            <td>
+                                <form method="POST" action="/deleteuseradmin/<%= blogs[i]._id %>" class="d-inline">
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you want to delete?')">Delete</button>
+                                </form>
+                            </td>
+
+                        
+                            </div>
+
+
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <h6>No data</h6>
+                <% } %>
+
+                    <hr>
+
+                    <div class="container">
+
+                        <div class="row">
+                            
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                            <a href="/adminhome" class="btn btn-primary mr-2">Back</a>
+                            </div>
+                        </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+    </div>
+
+</body>
+
+
+
+</html>

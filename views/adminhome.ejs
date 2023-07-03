@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="container mt-5">
+
+    <h1>Admin Home</h1>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="float-right">
+            <form method="get" action="/logout">
+              <button type="submit" class="btn btn-link">Logout</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <table class="table table-bordered table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% if(users.length>0){ %>
+        <% for (var i=0; i < users.length; i++) { %>
+          <tr>
+            <td>
+              <%= users[i].name %>
+            </td>
+            <td>
+              <%= users[i].email %>
+            </td>
+            <td>
+              <%= users[i].password %>
+            </td>
+            <td>
+              <a href="/adminupdate/<%= users[i]._id %>" class="btn btn-primary mr-2">Update</a>
+             
+             <% if(users[i].name !="admin") { %>
+
+              <form method="POST" action="/deleteadmin/<%= users[i]._id %>?_method=DELETE" class="d-inline">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you want to delete?')">Delete</button>
+              </form>
+                <form method="get" action="/adminuserdata/<%= users[i].email %>" class="d-inline">
+                <button type="submit" class="btn btn-primary">View</button>
+              </form>
+              <% } %>
+            </td>
+          </tr>
+          <% } %>
+            <% } else { %>
+              <h6> No users</h6>
+              <% } %>
+
+      </tbody>
+    </table>
+
+  </div>
+  
+  
+  </div>
+  
+  </body>
+  
+  </html>
+
+</body>
+</html>

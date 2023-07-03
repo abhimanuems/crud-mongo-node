@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Graph</title>
+    <style>
+        #chartContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            width: 50%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div id="chartContainer">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        // Data points
+        var x = [1, 5, 6, 2, 3, 4];
+        var y = [2, 4, 8, 2, 5, 3];
+
+        // Create a new chart
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Graph',
+                    data: [
+                        { x: x[0], y: y[0] },
+                        { x: x[1], y: y[1] },
+                        { x: x[2], y: y[2] },
+                        { x: x[3], y: y[3] },
+                        { x: x[4], y: y[4] },
+                        { x: x[5], y: y[5] }
+                    ],
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

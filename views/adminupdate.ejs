@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Credential Update</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      .body{
+        background-color: darkgray;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h2>Credential Update</h2>
+        <form action="/credupdate/<%= id %>" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <a href="/adminhome" class="btn btn-secondary mt-3 " >Back</a>
+    </div>
+</body>
+
+</html>
